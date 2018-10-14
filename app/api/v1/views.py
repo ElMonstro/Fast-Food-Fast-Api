@@ -23,7 +23,7 @@ class Order(Resource):
         if str(id) in orders.keys():
             return {'order': orders[id]}
         else:
-            return {'message': list(orders.keys())}
+            return {'message': 'No such order'}
 
         
         
