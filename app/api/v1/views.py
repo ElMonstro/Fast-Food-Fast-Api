@@ -15,10 +15,12 @@ class Orders(Resource):
     def post(self):
         data = request.get_json()
         order_no = int(uuid1())
-        orders[order_no] = [data['name'],data['items']]
+        orders[order_no] = [data['name'],data['items'], False]
         return orders, 201
         
-        
+class Order(Resource):
+    def get(self, id):
+        pass
         
 api.add_resource(Orders, '/orders', )
 
