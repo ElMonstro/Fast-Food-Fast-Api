@@ -14,13 +14,21 @@ class Orders(Resource):
 
     def post(self):
         data = request.get_json()
-        order_no = int(uuid1())
-        orders[order_no] = [data['name'],data['items']]
+        order_no = str(uuid1())
+        orders[order_no] = [data['name'],data['items'], False]
         return orders, 201
         
+class Order(Resource):
+    def get(self, id):
+        if str(id) in orders.keys():
+            return {'order': orders[id]}
+        else:
+            return {'message': 'No such order'}
+
         
         
 api.add_resource(Orders, '/orders', )
+api.add_resource(Order, '/orders/<id>')
 
 
 
