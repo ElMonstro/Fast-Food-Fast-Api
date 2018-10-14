@@ -10,7 +10,7 @@ orders = {}
 
 class Orders(Resource):
     def get(self):
-        return {'message':'get request'}
+        return {'orders': orders}
 
     def post(self):
         data = request.get_json()
