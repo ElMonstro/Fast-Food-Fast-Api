@@ -1,4 +1,3 @@
-from app.api.v1.views import Order, Orders
 import unittest
 from app.api import app
 
@@ -13,7 +12,8 @@ class OrdersTestCase(unittest.TestCase):
 
     def test_create_order(self):
         """Test Post request on the api"""
-        pass
+        response = self.client().post('/orders', data=self.order)
+        self.assertEqual(response.status_code, 201)        
 
     def test_return_list_of_orders(self):
         """Test get all orders request"""
