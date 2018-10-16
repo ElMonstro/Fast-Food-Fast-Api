@@ -24,6 +24,11 @@ class Order(Resource):
             return {'order': orders[id]}
         else:
             return {'message': 'No such order'}
+    
+    def put(self, id):
+        pass
+
+    
 
         
         
