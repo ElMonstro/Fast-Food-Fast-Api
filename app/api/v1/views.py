@@ -14,9 +14,11 @@ class Orders(Resource):
 
     def post(self):
         data = request.get_json()
+        if data == None:
+            return make_response('No Data in request', 400)
         order_no = str(uuid1())
         orders[order_no] = [data['name'],data['items'], False]
-        return orders, 201
+        return make_response('Order created', 201)
         
 class Order(Resource):
     def get(self, id):

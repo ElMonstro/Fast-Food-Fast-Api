@@ -1,18 +1,22 @@
 import unittest
 from app.api import application
+import json
 
 class OrdersTestCase(unittest.TestCase):
     """This class represents the orders testcase"""
     def setUp(self):
         """Define test variables"""
         self.app = application
-        self.client = self.app.test_client
+        self.client = self.app.test_client(self)
+        self.app.testing = True
         self.order = {"name":"Jay","items":[["coke", 4],["pizza",5]]}
+
 
 
     def test_create_order(self):
         """Test Post request on the api"""
-        response = self.client().post('/orders', data=self.order)
+        response = self.client.post('/api/v1/orders', data=json.dumps(self.order),
+        content_type='application/json')
         self.assertEqual(response.status_code, 201)        
 
     def test_return_list_of_orders(self):
@@ -27,4 +31,6 @@ class OrdersTestCase(unittest.TestCase):
         """Tests if the api can edit the orderstatus(PUT request)"""
         pass
 
+if __name__ == '__main__':
+    unittest.main()
         
