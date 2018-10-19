@@ -1,7 +1,10 @@
 from flask import Flask
-from v1.views import v1, api
+from app.api.v1.views import v1, api
+import os
+import sys
 
-app = Flask(__name__)
-app.register_blueprint(v1)
+file_dir = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(file_dir)
 
-app.run(debug=True)
+application = Flask(__name__)
+application.register_blueprint(v1)

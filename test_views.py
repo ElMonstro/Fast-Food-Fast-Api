@@ -1,11 +1,11 @@
 import unittest
-from app.api import app
+from app.api import application
 
 class OrdersTestCase(unittest.TestCase):
     """This class represents the orders testcase"""
     def setUp(self):
         """Define test variables"""
-        self.app = app
+        self.app = application
         self.client = self.app.test_client
         self.order = {"name":"Jay","items":[["coke", 4],["pizza",5]]}
 
