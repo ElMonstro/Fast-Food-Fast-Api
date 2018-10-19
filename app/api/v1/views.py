@@ -23,12 +23,15 @@ class Orders(Resource):
 class Order(Resource):
     def get(self, id):
         if str(id) in orders.keys():
-            return {'order': orders[id]}
+            return {'order': {id: orders[id]}}
         else:
             return {'message': 'No such order'}
     
     def put(self, id):
-        pass
+        if str(id) in orders.keys():
+            return {'message': 'Order status changed'}
+        else:
+            return {'message': 'No such order'}
 
     
 
