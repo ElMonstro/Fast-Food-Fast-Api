@@ -17,15 +17,18 @@ class OrdersTestCase(unittest.TestCase):
         """Test Post request on the api"""
         response = self.client.post('/api/v1/orders', data=json.dumps(self.order),
         content_type='application/json')
-        self.assertEqual(response.status_code, 201)        
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.data, b'Order created')        
 
     def test_return_list_of_orders(self):
         """Test get all orders request"""
-        pass
+        response = self.client.get('/api/v1/orders')
+        self.assertEqual(response.status_code, 200)
+        
 
     def test_get_specific_order(self):
         """Tests if the API can get an order from its id(GET request)"""
-        pass
+        
 
     def test_edit_order_status(self):
         """Tests if the api can edit the orderstatus(PUT request)"""

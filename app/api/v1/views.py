@@ -6,7 +6,7 @@ from uuid import uuid1
 v1 = Blueprint('v1', __name__, url_prefix='/api/v1')
 api = Api(v1)
 
-orders = {}
+orders = {{'b194c012-d399-11e8-a4f6-24fd52059abd': ['Jay', [['coke', 4], ['pizza', 5]], False]}}
 
 class Orders(Resource):
     def get(self):
