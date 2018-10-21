@@ -18,7 +18,10 @@ class OrdersTestCase(unittest.TestCase):
         response = self.client.post('/api/v1/orders', data=json.dumps(self.order),
         content_type='application/json')
         self.assertEqual(response.status_code, 201)
-        self.assertEqual(response.data, b'Order created')        
+        self.assertEqual(response.data, b'Order created')
+        response =  self.client.post('/api/v1/orders')
+        self.assertEqual(response.status, 400)
+        self.assertEqual(response.data, b'No data in request')      
 
     def test_return_list_of_orders(self):
         """Test get all orders request"""
