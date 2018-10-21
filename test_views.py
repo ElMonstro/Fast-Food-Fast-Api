@@ -20,8 +20,8 @@ class OrdersTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 201)
         self.assertEqual(response.data, b'Order created')
         response =  self.client.post('/api/v1/orders')
-        self.assertEqual(response.status, 400)
-        self.assertEqual(response.data, b'No data in request')      
+        self.assertEqual(response.status, '400 BAD REQUEST')
+        self.assertEqual(response.data, b'No Data in request')      
 
     def test_return_list_of_orders(self):
         """Test get all orders request"""
@@ -46,7 +46,7 @@ class OrdersTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response = self.client.get('/api/v1/orders/b194c0d')
         self.assertEqual(json.loads(response.data), {'message': 'No such order'})
-        
+
 
 if __name__ == '__main__':
     unittest.main()
