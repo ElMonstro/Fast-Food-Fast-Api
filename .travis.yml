@@ -1,4 +1,5 @@
-language: python
+language: 
+      - "python"
 env:
   - CODECOV_TOKEN="53be391d-1302-401c-93d5-79263bb6456f"
 python:
@@ -11,6 +12,6 @@ install:
 script: 
       - "pytest --cov=./app"
 
-after-success:
+after_success:
       - "codecov"
      
