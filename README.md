@@ -5,5 +5,4 @@ __Travis-CI build status__:
 
 __Test code coverage__:
 
-![Codecov branch](https://img.shields.io/codecov/c/github/ElMonstro/Fast-Food-Fast-Api/V1.svg)
-
+[![codecov](https://codecov.io/gh/ElMonstro/Fast-Food-Fast-Api/branch/v1/graph/badge.svg)](https://codecov.io/gh/ElMonstro/Fast-Food-Fast-Api)
