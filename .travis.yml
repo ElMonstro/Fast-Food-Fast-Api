@@ -1,0 +1,17 @@
+language: 
+      - "python"
+env:
+  - CODECOV_TOKEN="53be391d-1302-401c-93d5-79263bb6456f"
+python:
+      - "3.6"
+
+# Install dependencies
+install:
+      - "pip install -r requirements.txt"
+
+script: 
+      - "pytest --cov=./app"
+
+after_success:
+      - "codecov"
+     
