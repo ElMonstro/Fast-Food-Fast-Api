@@ -36,6 +36,8 @@ class OrdersTestCase(unittest.TestCase):
         orders = {'order':{'b194c012-d399-11e8-a4f6-24fd52059abd': ['Jay', [['coke', 4], ['pizza', 5]], False]}}
         self.assertEqual(data, orders)
         self.assertEqual(response.status_code, 200)
+        response = self.client.get('/api/v1/orders/b194c0d')
+        self.assertEqual(json.loads(response.data), {'message': 'No such order'})
         
 
     def test_edit_order_status(self):
