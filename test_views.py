@@ -44,6 +44,9 @@ class OrdersTestCase(unittest.TestCase):
         """Tests if the api can edit the orderstatus(PUT request)"""
         response = self.client.put('/api/v1/orders/b194c012-d399-11e8-a4f6-24fd52059abd')
         self.assertEqual(response.status_code, 200)
+        response = self.client.get('/api/v1/orders/b194c0d')
+        self.assertEqual(json.loads(response.data), {'message': 'No such order'})
+        
 
 if __name__ == '__main__':
     unittest.main()
