@@ -28,14 +28,13 @@ class DbaseConnection:
     def insert(self, table, item):
         pass
 
-
     
     def get_all_items(self, table):
         sql_string = 'SELECT * FROM {}'.format(table)
         self.cursor.execute(sql_string)
 
     def get_item(self, id, table):
-        sql_string = 'SELECT * FROM {} WHERE ID = {}'.format(table, str(id))
+        sql_string = 'SELECT * FROM {} WHERE ID = {}'.format(table.upper, str(id))
         self.cursor.execute(sql_string)
 
     
